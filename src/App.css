@@ -1,26 +1,37 @@
+/* Reinicio básico para asegurar consistencia */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
-  /* Tus colores de marca. Ajústalos si quieres. */
-  --primary-color: #007bff;
-  --background-color: #f4f4f9;
-  --text-color: #333;
+  /* Tus colores de marca. Ajusta si es necesario. */
+  --primary-color: #007bff; /* Azul vibrante */
+  --background-color: #f4f4f9; /* Gris muy claro, casi blanco */
+  --text-color: #333; /* Gris oscuro para el texto principal */
+  --secondary-text-color: #6c757d; /* Gris medio para texto secundario */
 }
 
 /* Asegura que el contenedor raíz y el cuerpo ocupen toda la pantalla */
 html, body, #root {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  width: 100%; /* Aseguramos también el ancho */
+  overflow: auto; /* Permite scroll si el contenido es muy largo */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  background-color: var(--background-color);
+  line-height: 1.6; /* Mejora la legibilidad */
+  color: var(--text-color); /* Color de texto por defecto para todo */
 }
 
 /* El contenedor principal de la App (App Shell) */
 .AppShell {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
+  min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla visible */
+  width: 100vw; /* Ocupa todo el ancho de la ventana */
+  background-color: var(--background-color); /* Fondo de la aplicación */
   text-align: center;
 }
 
@@ -28,18 +39,42 @@ html, body, #root {
   background-color: var(--primary-color);
   color: white;
   padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+}
+
+.AppHeader h1 {
+  margin: 0; /* Elimina el margen por defecto de h1 */
+  font-size: 2.5rem;
 }
 
 .AppContent {
   flex-grow: 1; /* Hace que el contenido principal ocupe el espacio sobrante */
   padding: 2rem;
-  color: var(--text-color);
+  /* Aseguramos el color del texto aquí también por si acaso */
+  color: var(--text-color); 
 }
+
+.AppContent h2 {
+  color: var(--primary-color); /* Color para títulos en el contenido */
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.AppContent p {
+  color: var(--secondary-text-color); /* Un gris más suave para el texto de párrafo */
+  font-size: 1.1rem;
+}
+
 
 .AppFooter {
   background-color: #333;
   color: white;
   padding: 1rem 0;
   width: 100%; /* Asegura que ocupe todo el ancho */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* Sombra hacia arriba */
+}
+
+.AppFooter p {
+    margin: 0; /* Elimina el margen por defecto del p en el footer */
+    font-size: 0.9rem;
 }
